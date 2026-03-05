@@ -1,0 +1,10 @@
+{
+    "sm2_public_key_hex": "",
+    "casdoor": {
+        "clientId": "",
+        "organizationName": "",
+        "appName": "",
+        "serverUrl": "",
+        "redirectPath": "/callback"
+    }
+}

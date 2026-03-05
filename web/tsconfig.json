@@ -1,0 +1,22 @@
+{
+  "include": [
+    "env.d.ts",
+    "src/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.json",
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true, // 核心配置：解决CommonJS模块默认导入兼容
+    "allowSyntheticDefaultImports": true, // 允许合成默认导入（可选，esModuleInterop会自动开启）
+    // "moduleResolution": "NodeNext", // 推荐：适配Node.js的模块解析规则
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  }
+}

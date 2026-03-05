@@ -1,0 +1,32 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+
+.vscode
+*.pid
+log/
+*.pprof
+
+
+# 前端配置忽略
+config*.json
+nginx*.conf
+
+# 后端配置忽略
+config*.yaml
+
+# 构建物
+buildSave/

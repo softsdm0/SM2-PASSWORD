@@ -1,0 +1,80 @@
+server:
+  name: passwordserver
+  log:
+    # 日志保存目录
+    saveDir: ./log/
+    # 日志级别
+    leve: DEBUG
+    # 日志切割大小，单位M
+    cutSizeMb: 500
+    # 切割日志最多保存个数
+    saveNum: 9
+  http:
+    bind: 0.0.0.0
+    port: 80
+  # mysql目前还没适配
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    user: root
+    pass: 123
+    dbName: passwordserver
+  postgres:
+    host: postgres
+    port: 5432
+    user: postgres
+    pass: 123abc...
+    dbName: passwordserver
+    timeZone: Asia/Shanghai
+  redis:
+    host: redis
+    port: 6379
+    pass: 123abc...
+    dbName: 0
+    # sessionId过期时间s
+    sessionIdExpiration: 300
+  cors: # 跨域配置, 可以不需要修改
+    # 允许跨域的域名, "http://xxx.com,https://bbb.com,http://*.bbb.com"
+    allowOrigins: ""
+    # 允许跨域的请求头，"xxxx,aaa,bbb"
+    allowHeaders: ""
+    # 允许跨域的请求方法
+    allowMethods: "GET,POST,HEAD,PUT,DELETE,PATCH"
+    # 在跨域情况下，表示是否允许浏览器发送跨域Cookie给服务器。
+    allowCredentials: false
+  casdoor: # casdoor登录
+    endpoint: "http://casdoor:8000" # casdoor地址
+    clientId: "61cbdfb2477b57bf0870" # id
+    clientSecret: "3479d08e7fcfd5cc11dfb27b0dabc93d12dbf8e4" # 密钥
+    certificate: | # 公钥
+      -----BEGIN CERTIFICATE-----
+      MIIE2TCCAsGgAwIBAgIDAeJAMA0GCSqGSIb3DQEBCwUAMCYxDjAMBgNVBAoTBWFk
+      bWluMRQwEgYDVQQDDAtjZXJ0X29kM3lpcTAeFw0yNTAyMjUwMjM2MDVaFw00NTAy
+      MjUwMjM2MDVaMCYxDjAMBgNVBAoTBWFkbWluMRQwEgYDVQQDDAtjZXJ0X29kM3lp
+      cTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKTqr4unOU1CZHwpK48S
+      Udh9azsxrgbI0Vevw4IBYEjfbvxuODb/lBkr50EGi2x5YV9tNDcO8b4fzPvFCcEq
+      98Da8FsTiK72MhmI3pCrfRVsxN6GruiUh3L3NE1Xqkb8FlwXRpXayv7lpbGPKosP
+      apVrjgSCzQ4DHD0EWr51P3C3MFnOCyF99qpuVJkkGFDY/q8hNvCSLDsZosuBH/yr
+      FauDI1DOMdm6/WoLi3s0FJd8GoBOoK5WxmlpLcPmxqlDvfOdQ0yHCBcpt9OuYCnM
+      d0MAcRPUWGGVsKqqOs/mi7c2tHgb5IKQD76JuF/9/pMtiJSvWubWRUlU2rpIgzQa
+      bpovjhJpsQ1SsZF/BxXrFDLczGC00YqVSAHDQ6qm+H8Jm96HGgrAaxF10Rp4uSWF
+      zQ89AxRjJUINzz/MV192C1qAZ7hiRm0l0e+LwbVTvwI5eiuAIjf3TuWypT7HbX9V
+      8mIGOlfMwnBrDxQz+oldfBg9h3rzx5ZA+5wr6h0vGvT/hQvfDJwkjbPUY3ZBLAyp
+      ybaQT0W+SFCJF5ue2wNRBrDPhSL1DnfSM7Fva+5638d//Wwzcm8AnT6zQZ4MXSJN
+      vNtmb882naI5a8kDJjEppInMnpcR6/EXrR+626hPHIsHQAGlLKrUAqMWOWg1w8zp
+      /OoPjYJOQip2FPEVTsSerJgzAgMBAAGjEDAOMAwGA1UdEwEB/wQCMAAwDQYJKoZI
+      hvcNAQELBQADggIBAASkhO3AGxhJa1+FWznnIU7zdPdiAtrJjfP/ewA/DXa9oWWP
+      opg1enrSfpPfDOI7HQG6x/XY52gXxovONs0c9pzX4ReJNxI7f5t4VbGuKYdh5ZPp
+      rBmxrf31VxxdW14FOm7NcauGYmeNX5jTAvds7o/SrmEw8WLQ48BgRBztS8yKoZHv
+      b7MHoc0Hj4+oglCxDovyTKph5G+n8ZhlxI9wBlS6SEeIVrrTGs/nOf33/PjTflLj
+      aAYb2aLgpdQIuhYPymvePnDKfSRXW4CqpKwl4C5e0ijfTQrtL4a2B8oLBCNhvmFx
+      b8gtpB/n+O19+1K1Kbit0E8eWy0Es5qyGvLsrqpGM4Yj+3h19kuz977w9thQV4xH
+      DcdYMpnvYBZt2ladJ7zUF5usMB25aJZIAh7zuWBA/lRM1fCIppqahy9aMg0A8imC
+      8tIC5QtyuIAsPO6WwM6AOLnEKXoHQz2tyadmI7wGA70HLUBwpuSA8kwlcAP+sIMQ
+      X7xkhvOzxvkWlJz2wAHlWJTKSc/09txhEYaMthIFjaK/PVg6N7desB54M4VK8RJU
+      xagNlFHMBi1/sOzv5ZGs1y1CfTyX2hUN4GU6exPqM1jJELZpjfthA2D13QQSYbjn
+      GvWibvJZ0WJL2LHNud9jYjJ/Nla/uoX3G5mAh6EQB43ut8Ad7tdzHDzi87ss
+      -----END CERTIFICATE-----
+    # 留空时，docker-compose 一键部署会自动从 casdoor 内置应用 app-built-in 读取
+    organization: ""
+    application: ""

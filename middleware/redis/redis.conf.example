@@ -1,0 +1,30 @@
+# RDB策略
+# save阻塞写盘，bgsave不阻塞写盘
+# 15分钟且有1个key改变即存盘
+save 900 1
+# 5分钟且有10个key改变即存盘
+save 300 10
+# 1分钟且有10000个key改变即存盘
+save 60 10000
+
+
+# AOF
+# 开启AOF
+appendonly yes
+# AOF文件名称
+appendfilename "appendonly.aof"
+
+# 实时记录，并完成存盘同步
+# appendfsync always
+# 每秒记录一次，并完成磁盘同步
+appendfsync everysec
+# 写入aof，不执行磁盘同步
+# appendfsync no
+
+# 首次重写触发值
+auto-aof-rewrite-min-size 50mb
+# 再次重写，增长百分比100%
+auto-aof-rewrite-percentage 100
+
+# 密码
+requirepass 123abc...

@@ -1,0 +1,18 @@
+FROM golang:alpine AS server-build
+RUN mkdir -p /data/build
+RUN go env -w GOPROXY=https://goproxy.cn
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+RUN apk add make git
+WORKDIR /data/build
+COPY ./server .
+COPY ./.git .
+RUN cp ./deploy/config/config.yaml.example ./deploy/config/config.yaml
+RUN make
+
+FROM alpine AS server
+WORKDIR /data/
+COPY --from=server-build /data/build/buildSave/*.tgz .
+RUN tar -xvf *.tgz && rm -rf *.tgz
+WORKDIR /data/passwordserver
+EXPOSE 80
+CMD [ "sh", "/data/passwordserver/start.sh" ]

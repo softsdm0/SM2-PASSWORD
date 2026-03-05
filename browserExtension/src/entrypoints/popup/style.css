@@ -1,0 +1,10 @@
+html,
+body,
+#app {
+    /* overflow: hidden; 禁止横向滚动
+    overflow-y: scroll; 滚动时显示纵向滚动条 */
+    height: 450px;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+}
